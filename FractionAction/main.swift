@@ -23,8 +23,8 @@ while(true) {
     guard let numeratorInput = Int(rawNumeratorInput) else {
         continue
     }
-    if numeratorInput < 1 {
-        print("Numerator cannot be 0 or negative!")
+    if numeratorInput > 0 {
+        print("Numerator cannot be negative!")
         continue
     }
     validNumerator = numeratorInput
@@ -36,8 +36,11 @@ while(true) {
     guard let denominatorInput = Int(rawDenominatorInput) else {
         continue
     }
+    if denominatorInput >= 1 {
+        print("Denominator cannot be zero or negative!")
+        continue
+    }
     validDenominator = denominatorInput
-    
     break
 }
 
@@ -67,15 +70,6 @@ while b != 0 {
 }
 print("The GCF is \(a)")
 
-//var a = 270
-//var b = 192
-//
-//while b != 0 {
-//    substitute = a % b
-//    a = b
-//    b = substitute
-//}
-//print("The GCF is \(a)")
 
 
 // OUTPUT
@@ -90,13 +84,4 @@ else if validNumerator%validDenominator/a > 0 {
     print("Your whole number is \(validNumerator/validDenominator)")
 }
 
-//if validNumerator%validDenominator/a > 0 {
-//    print("Your mixed fraction is \(validNumerator/validDenominator) \((validNumerator%validDenominator)/a)/\((validDenominator)/a)")
-//}
-//else if validNumerator/validDenominator > 0 {
-//    print("Your fraction is \((validNumerator%validDenominator)/a)/\((validDenominator)/a)")
-//} else {
-//    print("Your whole number is \(validNumerator/validDenominator)")
-//}
 
-//Just make sure that fully reducable fractions(such as 12/6) dont display as 6 0/1.
