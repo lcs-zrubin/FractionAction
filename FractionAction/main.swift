@@ -52,12 +52,41 @@ let quotient = validNumerator / validDenominator
 
 if remainder == 0 {
     print("Your whole number is \(quotient)")
-} else if remainder > 0 {
-    print("Your mixed number is \(quotient) \(remainder)/\(validDenominator)")
-} else {
-    EUCLIDEAN ALGORITHM
+}  else {
+    
+    // We might have to reduce
+    //Loop backwards from the halfway point of the numerator
+    //e.g. 3 8/12
+    //      Loop backwards from the halfway point of 8
+    //      4,3,2
+    
+    var GCF = -1 //temp value
+    for i in stride(from: remainder/2, through: 2, by: -1){
+     
+        //When the countervairable (i) evenly divides into both the remainder
+        //and the original denominator... we have the GCF
+        //e.g: 8 % 4 == 0   12 % 4 == 0
+    
+        if remainder % i == 0 && validDenominator % 1 == 0 {
+            
+            //now we know that "i" is the GCF
+            GCF = i
+            break //stop the loop now that we have a match
+        }
+        
+    }
+    print(GCF)
+    
+    //Print the reduced fraction
+    print("\(quotient) \(remainder / GCF)/\(validDenominator / GCF)")
 }
 
+
+
+
+//else if remainder > 0 {
+//    print("Your mixed number is \(quotient) \(remainder)/\(validDenominator)")
+//}
 //print("\(quotient/validDenominator)")
 
 
