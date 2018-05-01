@@ -52,7 +52,7 @@ let remainder = validNumerator % validDenominator
 let quotient = validNumerator / validDenominator
 
 if remainder == 0 {
-    print("Your whole number is \(quotient)")
+    print("The result is:\n\(quotient)")
 }  else {
     
     // We might have to reduce
@@ -76,12 +76,14 @@ if remainder == 0 {
         }
         
     }
-    print(GCF)
     
     //Print the reduced fraction
-    print("\(quotient) \(remainder / GCF)/\(validDenominator / GCF)")
+    if quotient == 0 {
+        print("The result is:\n\(remainder / GCF)/\(validDenominator / GCF)")
+    } else {
+    print("The result is:\n\(quotient) \(remainder / GCF)/\(validDenominator / GCF)")
 }
-
+}
 
 
 
