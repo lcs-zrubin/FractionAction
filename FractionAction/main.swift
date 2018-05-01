@@ -28,22 +28,23 @@ while(true) {
         continue
     }
     validNumerator = numeratorInput
-    
-    print("Denominator?")
-    guard let rawDenominatorInput = readLine() else {
-        continue
-    }
-    guard let denominatorInput = Int(rawDenominatorInput) else {
-        continue
-    }
-    if denominatorInput < 1 {
-        print("Denominator cannot be zero or negative!")
-        continue
-    }
-    validDenominator = denominatorInput
     break
 }
-
+while(true){
+print("Denominator?")
+guard let rawDenominatorInput = readLine() else {
+    continue
+}
+guard let denominatorInput = Int(rawDenominatorInput) else {
+    continue
+}
+if denominatorInput < 1 {
+    print("Denominator cannot be zero or negative!")
+    continue
+}
+validDenominator = denominatorInput
+break
+}
 // PROCESS
 // Implement the primary logic of the problem here
 
@@ -60,17 +61,17 @@ if remainder == 0 {
     //      Loop backwards from the halfway point of 8
     //      4,3,2
     
-    var GCF = -1 //temp value
-    for i in stride(from: remainder/2, through: 2, by: -1){
+    var GCF = 1 //temp value
+    for possibleFactor in stride(from: remainder, through: 2, by: -1){
      
         //When the countervairable (i) evenly divides into both the remainder
         //and the original denominator... we have the GCF
         //e.g: 8 % 4 == 0   12 % 4 == 0
     
-        if remainder % i == 0 && validDenominator % 1 == 0 {
+        if remainder % possibleFactor == 0 && validDenominator % possibleFactor == 0 {
             
             //now we know that "i" is the GCF
-            GCF = i
+            GCF = possibleFactor
             break //stop the loop now that we have a match
         }
         
